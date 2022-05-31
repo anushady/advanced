@@ -27,7 +27,7 @@ const material = new THREE.MeshBasicMaterial({
 });
 
 const plane = new THREE.Mesh(geometry, material);
-//scene.add(plane);
+scene.add(plane);
 plane.position.set(0, 0, -2);
 plane.rotation.set(0, Math.PI / 2, 0);
 
