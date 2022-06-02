@@ -27,7 +27,7 @@ const material = new THREE.MeshBasicMaterial({
 });
 
 const plane = new THREE.Mesh(geometry, material);
-scene.add(plane);
+//scene.add(plane);
 plane.position.set(0, 0, -2);
 plane.rotation.set(0, Math.PI / 2, 0);
 
@@ -143,27 +143,16 @@ function onDocumentMouseMove(event) {
 
 const updateOnScroll = (event) => {
   let tl = gsap.timeline();
-  tl.to(
-    obj.rotation,
-    {
-      y: 0,
-      duration: 1,
-    },
-    0
-  )
+  tl.to(obj.rotation, {
+    y: 0,
+    duration: 1,
+  })
+
     .to(
       obj.position,
       {
         x: 0,
-        duration: 1,
-      },
-      0
-    )
-    .to(
-      obj.position,
-      {
         z: window.scrollY * 0.0033,
-        duration: 1,
       },
       0
     )
@@ -200,7 +189,7 @@ const tick = () => {
   // Update objects
   if (obj) obj.rotation.y += 0.02 * (targetX - obj.rotation.y);
   plane.rotation.y += 0.008 * (targetX - obj.rotation.y);
-  if (obj) obj.position.z += 0.0008 * (targetY - obj.position.z);
+  //if (obj) obj.position.z += 0.0008 * (targetY - obj.position.z);
   // Update Orbital Controls
   //controls.update();
   renderer.render(scene, camera);
