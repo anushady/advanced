@@ -3,6 +3,11 @@
   src:  url('Fonts/HelveticaNeueCyr-Light.woff2') format('woff2')
         
 }
+@font-face {
+  font-family: 'MyWebFont2';
+  src:  url('Fonts/HelveticaNeueCyr-Roman.woff2') format('woff2')
+        
+}
 * {
   margin: 0;
   padding: 0;
@@ -12,6 +17,7 @@ body {
   font-family:'MyWebFont';
   overflow-x: hidden;
   background-color: black;
+  color: white;
 }
 
 .webgl {
@@ -35,12 +41,11 @@ body {
   opacity: 1;
 
 }
-section{
-  position: relative;
-  height: 100vh;
-}
+
 #section1{
   z-index:1;
+  position: relative;
+  height: 100vh;
 }
 
 
@@ -93,6 +98,9 @@ section{
   padding: 14px 40px;
   font-weight: 600;
   text-decoration: none;
+}
+#section1 li a:hover {
+  color: white;
 }
 #section1 li{
   list-style: none;
@@ -196,4 +204,256 @@ section{
   font-weight: 300;
  
 }
+#section2{
+  position: relative;
+  height: 100vh;
+}
+#section3{
+  position: relative;
+  height: 100vh;
+}
+#section4 {
+  z-index: 2;
+  position: relative;
+  height: 100vh;
 
+}
+.sect4container{
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+.sect4h1 h1{
+  color: white;
+  font-size: 4.4rem;
+  font-weight: 600;
+  line-height: 100%;
+  width: 60vw;
+  letter-spacing: 2px;
+}
+.sect4cont {
+  margin-top: 25vh;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  gap: 50%;
+}
+
+.sect4p{
+  display: block;
+}
+.sect4p span{
+  display: block;
+  background-color: white;
+  width: 30vw;
+  height: 1px;
+  margin-top: 7vh;
+}
+.sect4p p{
+  font-size: 1rem;
+  color: white;
+  width: 30vw;
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 150%;
+}
+#section5 {
+  position: relative;
+  height: 100vh;
+  z-index: 2;
+}
+#sect5cont{
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 42%;
+  transform: translate(-50%, -50%);
+}
+#section5 p{
+  color: white;
+  font-size: 1.1rem;
+  margin-bottom: 7px;
+}
+#section5 h1{
+  font-family: 'MyWebFont2';
+  color: white;
+  font-size: 5.5rem;
+  font-weight: 400;
+  line-height: 120%;
+  letter-spacing: 2px;
+}
+#section6 {
+  position: relative;
+  height: 100vh;
+  z-index: 2;
+}
+.sect6container{
+  position: absolute;
+  top: 10vh;
+  left: 45%;
+  transform: translate(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sect6h1 h1{
+  color: white;
+  font-size:3rem;
+  font-weight: 400;
+  line-height: 100%;
+  width: 50vw;
+  letter-spacing: 1px;
+}
+.sect6cont {
+  margin-top: 20vh;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  gap: 50%;
+}
+
+.sect6p{
+  display: block;
+}
+.sect6p span{
+  display: block;
+  background-color: white;
+  width: 30vw;
+  height: 1px;
+  margin-top: 5vh;
+}
+.sect6p p{
+  font-size: 0.9rem;
+  color: white;
+  width: 30vw;
+  text-align: justify;
+  text-justify: inter-word;
+  line-height: 150%;
+}
+#section7 {
+  position: relative;
+  z-index: 2;
+  height: 1000vh;
+}
+#recwor{
+  position: absolute;
+  top: 15vh;
+  left: 50vw;
+  transform: translate(-50%);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#section7 h1{
+  font-size: 9.3rem;
+  color: white;
+  letter-spacing: 5px;
+}
+.bigcontainer{
+
+  display: flex;
+  flex-direction: column;
+}
+.recentworkcontainer{
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 45vh;
+  left: 50vw;
+  transform: translate(-50%);
+  width: 37%;
+  height: 37%;
+}
+.recentimg img{
+  height: 80%;
+  bottom: auto;
+  left: 0;
+  right: auto;
+  top: 0;
+  width: 100%;
+  object-fit: cover;
+}
+.recenth2{
+  font: 'MyWebFont';
+  font-size: 1.4rem;
+  margin-top: -120px;
+  font-weight: 100;
+ 
+}
+.recentp{
+  margin-top: 15px;
+  color: rgb(166, 166, 166);
+  display: flex;
+  justify-content: space-between;
+}
+.year{ 
+  color: white;
+}
+.sect7rec2{
+  top: 155vh;
+  left: 28vw;
+}
+.sect7rec3{
+  top: 215vh;
+  left: 72vw;
+}
+.sect7rec4{
+  top: 280vh;
+  left: 28vw;
+}
+.sect7rec5{
+  top: 390vh;
+}
+.sect7rec6{
+  top: 500vh;
+  left: 28vw;
+}
+.sect7rec7{
+  top: 560vh;
+  left: 72vw;
+}
+.sect7rec8{
+  top: 625vh;
+  left: 28vw;
+}
+.sect7rec9{
+  top: 735vh;
+}
+#section8{
+  position: relative;
+  height: 100vh;
+  z-index: 2;
+}
+.wrapper {
+  position: absolute;
+  top: 5vh;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: marquee 50s linear infinite;
+}
+
+.marquee p {
+  display: inline-block;
+  font-size: 5rem;
+  font-weight: 600;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
