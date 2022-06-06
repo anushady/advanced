@@ -19,10 +19,7 @@ body {
   background-color: black;
   color: white;
 }
-section{
-  border: 2px solid rgb(255, 0, 0);
 
-}
 .webgl {
   position: fixed;
   top: 0;
