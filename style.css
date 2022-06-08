@@ -19,14 +19,17 @@ body {
   background-color: black;
   color: white;
 }
+/* section{
+  border: 2px solid rgb(255, 0, 0);
 
+} */
 .webgl {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
   outline: none;
-  opacity: 1;
+
   
 
 }
@@ -38,7 +41,7 @@ body {
   z-index: 1;
   width: 100vw;
   height: 100vh;
-  opacity: 1;
+
 
 }
 
@@ -227,6 +230,11 @@ left: 5vw;
   font-weight: 300;
  
 }
+#w {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
 #section2{
   position: relative;
   height: 100vh;
@@ -255,7 +263,7 @@ left: 5vw;
   font-size: 4rem;
   font-weight: 600;
   line-height: 100%;
-  width: 70vw;
+  width: 65vw;
   letter-spacing: 2px;
 }
 .sect4cont {
@@ -263,7 +271,7 @@ left: 5vw;
   display: flex;
   justify-content:space-between;
   align-items: center;
-  gap: 50%;
+  gap: 20%;
 }
 
 .sect4p{
@@ -336,7 +344,7 @@ left: 5vw;
   display: flex;
   justify-content:space-between;
   align-items: center;
-  gap: 50%;
+  gap: 20%;
 }
 
 .sect6p{
@@ -499,7 +507,7 @@ left: 5vw;
   display: flex;
   justify-content:space-between;
   align-items: center;
-  gap: 45%;
+  gap: 18%;
 }
 .sect8divr p{
   width: 500px;
@@ -735,8 +743,16 @@ left: 5vw;
     width: 80vw;
   }
   .sect4cont { 
-    flex-direction: column;
+    flex-direction: column-reverse;
     margin-top: 19vh;
+  }
+  .hover svg{
+    width: 100px;
+   height: 100px;
+  }
+  .read_more{
+    width: 100px;
+   height: 100px;
   }
   .sect4p p{
     width: 80vw;
@@ -790,3 +806,102 @@ left: 5vw;
     font-size: 2rem;
   }
 }
+
+
+/* svg  */
+/* svg  */
+/* svg  */
+
+#divq{
+  /* position: absolute;
+  top: 100px;
+  right: 10%; */
+}
+
+.read__more{
+  transition: all .5s ease-in-out;
+  transform: scale(0);
+}
+
+.hover{
+  position: absolute;
+  /* padding: 20px; */
+  /* background-color: aqua; */
+}
+
+.cta__circle:hover .read__more {
+  transform: scale(1);
+}
+
+.full_video{
+  position: absolute;
+  right: 50%;
+  top: 50%;
+}
+
+
+/* Contact us */
+#divq2{
+  position: fixed;
+  right: 50%;
+  top: 70%;
+}
+
+.contact{
+  position: absolute;
+  width:100px;
+  height:100px;
+  padding: 15px;
+}
+
+.orange{
+  position: absolute;
+  transition: all .5s ease-in-out;
+  transform: scale(0);
+}
+
+.orange::after{
+  scale: 0;
+}
+
+.contact:hover .orange {
+  transform: scale(1.01);
+}
+
+
+
+.container {
+  position: absolute;
+  width:auto;
+  height: auto;
+
+}
+
+.swipeimage {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top:0;
+  z-index: 9;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.imagediv{
+  position: absolute;
+  margin: 0;
+  /* left: 40%; */
+  /* padding-right: -14px; */
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 20px;
+  }
+a:hover {
+      text-decoration:none;
+  }
+
