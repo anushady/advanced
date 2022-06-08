@@ -18,17 +18,23 @@ loader.load(
     obj.position.set(0, 0, 0);
   }
 );
+const video = document.getElementById("video");
+//const texture = new THREE.VideoTexture(video);
+//texture.minFilter = THREE.LinearFilter;
+//texture.magFilter = THREE.LinearFilter;
+const imagetex = new THREE.TextureLoader().load("images/alef-preview.jpg");
 const geometry = new THREE.PlaneGeometry(5, 3);
 const material = new THREE.MeshBasicMaterial({
-  color: 0xffff00,
+  map: imagetex,
+  //color: 0xffff00,
   side: THREE.DoubleSide,
   transparent: true,
   opacity: 0,
 });
 
 const plane = new THREE.Mesh(geometry, material);
-//scene.add(plane);
-plane.position.set(0, 0, -2);
+scene.add(plane);
+plane.position.set(0, 0, -9);
 plane.rotation.set(0, Math.PI / 2, 0);
 
 // Lights
@@ -146,35 +152,48 @@ const updateOnScroll = (event) => {
   tl.to(obj.rotation, {
     y: 0,
     duration: 1,
-  })
-
-    .to(
-      obj.position,
-      {
-        x: 0,
-        z: window.scrollY * 0.0033,
-      },
-      0
-    )
-    .to(
-      material,
-      {
-        opacity: 1,
-        duration: 2,
-      },
-      5
-    )
-    .to(
-      plane.rotation,
-      {
-        y: 0,
-        duraion: 2,
-      },
-      5
-    );
+  }).to(
+    obj.position,
+    {
+      x: 0,
+      z: window.scrollY * 0.0033,
+    },
+    0
+  );
 };
 
 window.addEventListener("scroll", updateOnScroll);
+
+var action6 = gsap.to(".webgl", {
+  ease: "none",
+  duration: 0.25,
+});
+
+ScrollTrigger.create({
+  trigger: canvas2,
+  start: "top top",
+  endTrigger: "#section3",
+  end: "top top",
+  pin: true,
+  pinSpacing: true,
+  animation: action6,
+  toggleActions: "play reverse play reverse",
+});
+
+var tl0 = gsap.timeline();
+var action5 = tl0.to(material, { opacity: 1, duration: 1 }, 0);
+tl0.to(plane.rotation, { y: Math.PI, duration: 1 }, 0);
+tl0.to(plane.position, { z: window.scrollY * -0.00105, duration: 1 }, 0);
+tl0.to(plane.position, { x: -0.2 }, 0);
+ScrollTrigger.create({
+  trigger: "#section2",
+  start: "top top",
+  endTrigger: "#section3",
+  end: "top top",
+  animation: action5,
+  scrub: 2,
+  toggleActions: "play reverse play reverse",
+});
 
 const clock = new THREE.Clock();
 
@@ -188,7 +207,8 @@ const tick = () => {
 
   // Update objects
   if (obj) obj.rotation.y += 0.02 * (targetX - obj.rotation.y);
-  plane.rotation.y += 0.008 * (targetX - obj.rotation.y);
+  plane.rotation.y -= 0.004 * (targetX - plane.rotation.z);
+  //plane.rotation.x -= 0.00006 * (targetY - plane.rotation.y);
   //if (obj) obj.position.z += 0.0008 * (targetY - obj.position.z);
   // Update Orbital Controls
   //controls.update();
@@ -198,3 +218,119 @@ const tick = () => {
 };
 
 tick();
+
+// move Arrow png with cursor on image hover
+gsap.utils.toArray(".container").forEach((el) => {
+  const image = el.querySelector("img.swipeimage"),
+    setX = gsap.quickSetter(image, "x", "px"),
+    setY = gsap.quickSetter(image, "y", "px"),
+    align = (e) => {
+      const top = el.getBoundingClientRect().top;
+      setX(e.clientX);
+      setY(e.clientY - top);
+    },
+    startFollow = () => document.addEventListener("mousemove", align),
+    stopFollow = () => document.removeEventListener("mousemove", align),
+    fade = gsap.to(image, {
+      autoAlpha: 1,
+      ease: "none",
+      paused: true,
+      onReverseComplete: stopFollow,
+    });
+
+  el.addEventListener("mouseenter", (e) => {
+    fade.play();
+    startFollow();
+    align(e);
+  });
+  el.addEventListener("mouseleave", () => fade.reverse());
+});
+
+//links move effect
+var hoverMouse = function ($el) {
+  $el.each(function () {
+    var $self = $(this);
+    var hover = false;
+    var offsetHoverMax = $self.attr("offset-hover-max") || 0.7;
+    var offsetHoverMin = $self.attr("offset-hover-min") || 0.5;
+
+    var attachEventsListener = function () {
+      $(window).on("mousemove", function (e) {
+        //
+        var hoverArea = hover ? offsetHoverMax : offsetHoverMin;
+
+        // cursor
+        var cursor = {
+          x: e.clientX,
+          y: e.clientY + $(window).scrollTop(),
+        };
+
+        // size
+        var width = $self.outerWidth();
+        var height = $self.outerHeight();
+
+        // position
+        var offset = $self.offset();
+        var elPos = {
+          x: offset.left + width / 2,
+          y: offset.top + height / 2,
+        };
+
+        // comparaison
+        var x = cursor.x - elPos.x;
+        var y = cursor.y - elPos.y;
+
+        // dist
+        var dist = Math.sqrt(x * x + y * y);
+
+        // mutex hover
+        var mutHover = false;
+
+        // anim
+        if (dist < width * hoverArea) {
+          mutHover = true;
+          if (!hover) {
+            hover = true;
+          }
+          onHover(x, y);
+        }
+
+        // reset
+        if (!mutHover && hover) {
+          onLeave();
+          hover = false;
+        }
+      });
+    };
+
+    var onHover = function (x, y) {
+      gsap.to($self, 0.4, {
+        x: x * 0.8,
+        y: y * 0.8,
+        //scale: .9,
+        rotation: x * 0.05,
+        ease: Power2.easeOut,
+      });
+    };
+    var onLeave = function () {
+      gsap.to($self, 0.5, {
+        x: 0,
+        y: 0,
+        scale: 1,
+        rotation: 0,
+        ease: Elastic.easeOut.config(0.2, 0.8),
+      });
+    };
+
+    attachEventsListener();
+  });
+};
+
+hoverMouse($(".link"));
+
+//image Zoom
+const imagediv = document.querySelector(".img");
+
+document.querySelector(".imagediv").addEventListener("mouseover", () => {
+  gsap.fromTo(imagediv, { scale: 1.05 }, { scale: 1, duration: 0.75 });
+});
