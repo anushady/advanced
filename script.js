@@ -183,7 +183,7 @@ ScrollTrigger.create({
 var tl0 = gsap.timeline();
 var action5 = tl0.to(material, { opacity: 1, duration: 1 }, 0);
 tl0.to(plane.rotation, { y: Math.PI, duration: 1 }, 0);
-tl0.to(plane.position, { z: window.scrollY * -0.00105, duration: 1 }, 0);
+tl0.to(plane.position, { z: -2, duration: 1 }, 0);
 tl0.to(plane.position, { x: -0.2 }, 0);
 ScrollTrigger.create({
   trigger: "#section2",
@@ -329,8 +329,8 @@ var hoverMouse = function ($el) {
 hoverMouse($(".link"));
 
 //image Zoom
-const imagediv = document.querySelector(".img");
+//const imagediv = document.querySelector(".img");
 
-document.querySelector(".imagediv").addEventListener("mouseover", () => {
-  gsap.fromTo(imagediv, { scale: 1.05 }, { scale: 1, duration: 0.75 });
-});
+// document.querySelector(".imagediv").addEventListener("mouseover", () => {
+//   gsap.fromTo(imagediv, { scale: 1.05 }, { scale: 1, duration: 0.75 });
+// });
