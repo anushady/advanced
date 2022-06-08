@@ -175,7 +175,7 @@ ScrollTrigger.create({
   endTrigger: "#section3",
   end: "top top",
   pin: true,
-  pinSpacing: true,
+  pinSpacing: false,
   animation: action6,
   toggleActions: "play reverse play reverse",
 });
