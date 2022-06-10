@@ -18,24 +18,24 @@ loader.load(
     obj.position.set(0, 0, 0);
   }
 );
-const video = document.getElementById("video");
-//const texture = new THREE.VideoTexture(video);
-//texture.minFilter = THREE.LinearFilter;
-//texture.magFilter = THREE.LinearFilter;
-const imagetex = new THREE.TextureLoader().load("images/alef-preview.jpg");
-const geometry = new THREE.PlaneGeometry(5, 3);
-const material = new THREE.MeshBasicMaterial({
-  map: imagetex,
-  //color: 0xffff00,
-  side: THREE.DoubleSide,
-  transparent: true,
-  opacity: 0,
-});
+// const video = document.getElementById("video");
+// //const texture = new THREE.VideoTexture(video);
+// //texture.minFilter = THREE.LinearFilter;
+// //texture.magFilter = THREE.LinearFilter;
+// const imagetex = new THREE.TextureLoader().load("images/alef-preview.jpg");
+// const geometry = new THREE.PlaneGeometry(5, 3);
+// const material = new THREE.MeshBasicMaterial({
+//   map: imagetex,
+//   //color: 0xffff00,
+//   side: THREE.DoubleSide,
+//   transparent: true,
+//   opacity: 0,
+// });
 
-const plane = new THREE.Mesh(geometry, material);
-scene.add(plane);
-plane.position.set(0, 0, -9);
-plane.rotation.set(0, Math.PI / 2, 0);
+// const plane = new THREE.Mesh(geometry, material);
+// scene.add(plane);
+// plane.position.set(0, 0, -9);
+// plane.rotation.set(0, Math.PI / 2, 0);
 
 // Lights
 const light = new THREE.AmbientLight(0xffffff, 0.6); // soft white light
@@ -164,36 +164,36 @@ const updateOnScroll = (event) => {
 
 window.addEventListener("scroll", updateOnScroll);
 
-var action6 = gsap.to(".webgl", {
-  ease: "none",
-  duration: 0.25,
-});
+// var action6 = gsap.to(".webgl", {
+//   ease: "none",
+//   duration: 0.25,
+// });
 
-ScrollTrigger.create({
-  trigger: canvas2,
-  start: "top top",
-  endTrigger: "#section3",
-  end: "top top",
-  pin: true,
-  pinSpacing: false,
-  animation: action6,
-  toggleActions: "play reverse play reverse",
-});
+// ScrollTrigger.create({
+//   trigger: canvas2,
+//   start: "top top",
+//   endTrigger: "#section3",
+//   end: "top top",
+//   pin: true,
+//   pinSpacing: false,
+//   animation: action6,
+//   toggleActions: "play reverse play reverse",
+// });
 
-var tl0 = gsap.timeline();
-var action5 = tl0.to(material, { opacity: 1, duration: 1 }, 0);
-tl0.to(plane.rotation, { y: Math.PI, duration: 1 }, 0);
-tl0.to(plane.position, { z: -2, duration: 1 }, 0);
-tl0.to(plane.position, { x: -0.2 }, 0);
-ScrollTrigger.create({
-  trigger: "#section2",
-  start: "top top",
-  endTrigger: "#section3",
-  end: "top top",
-  animation: action5,
-  scrub: 2,
-  toggleActions: "play reverse play reverse",
-});
+// var tl0 = gsap.timeline();
+// var action5 = tl0.to(material, { opacity: 1, duration: 1 }, 0);
+// tl0.to(plane.rotation, { y: Math.PI, duration: 1 }, 0);
+// tl0.to(plane.position, { z: -2, duration: 1 }, 0);
+// tl0.to(plane.position, { x: -0.2 }, 0);
+// ScrollTrigger.create({
+//   trigger: "#section2",
+//   start: "top top",
+//   endTrigger: "#section3",
+//   end: "top top",
+//   animation: action5,
+//   scrub: 2,
+//   toggleActions: "play reverse play reverse",
+// });
 
 const clock = new THREE.Clock();
 
@@ -207,7 +207,7 @@ const tick = () => {
 
   // Update objects
   if (obj) obj.rotation.y += 0.02 * (targetX - obj.rotation.y);
-  plane.rotation.y -= 0.004 * (targetX - plane.rotation.z);
+  //plane.rotation.y -= 0.004 * (targetX - plane.rotation.z);
   //plane.rotation.x -= 0.00006 * (targetY - plane.rotation.y);
   //if (obj) obj.position.z += 0.0008 * (targetY - obj.position.z);
   // Update Orbital Controls
