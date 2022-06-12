@@ -14,8 +14,8 @@ loader.load(
   function (gltf) {
     obj = gltf.scene;
     scene.add(obj);
-    obj.scale.set(0.9, 0.9, 0.9);
-    obj.position.set(0, 0.15, 0);
+    obj.scale.set(0.6, 0.6, 0.6);
+    obj.position.set(0, 0.2, 0);
   }
 );
 // const video = document.getElementById("video");
@@ -104,7 +104,7 @@ $(window).resize(function () {
   }
 });
 // Lights
-const light = new THREE.AmbientLight(0xffffff, 0.6); // soft white light
+const light = new THREE.AmbientLight(0xffffff, 1); // soft white light
 scene.add(light);
 
 const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
@@ -130,6 +130,7 @@ const rectLight = new THREE.RectAreaLight(0xffffff, intensity, width, height);
 rectLight.position.set(500, 0, 100);
 rectLight.lookAt(0, 0, 0);
 scene.add(rectLight);
+
 const rectLight2 = new THREE.RectAreaLight(0xffffff, intensity, width, height);
 rectLight2.position.set(-500, 0, 100);
 rectLight2.lookAt(0, 0, 0);
@@ -219,15 +220,23 @@ const updateOnScroll = (event) => {
       duration: 1,
     },
     0
-  ).to(
-    obj.position,
-    {
-      x: 0,
-      y: 0,
-      z: window.scrollY * 0.0033,
-    },
-    0
-  );
+  )
+    .to(
+      obj.position,
+      {
+        x: 0,
+
+        z: window.scrollY * 0.0033,
+      },
+      0
+    )
+    .to(
+      obj.position,
+      {
+        y: 0,
+      },
+      1
+    );
 };
 
 window.addEventListener("scroll", updateOnScroll);
@@ -256,7 +265,22 @@ var action5 = tl0.to(material, { opacity: 1, duration: 1 }, 0);
 tl0.to(plane.rotation, { y: Math.PI, duration: 1 }, 0);
 tl0.to(plane.position, { z: -2, duration: 1 }, 0);
 tl0.to(plane.position, { x: 0, duration: 1 }, 0);
+////whatsup
+// if (obj) {
+//   var tlwh = gsap.timeline();
+//   var action5w = tlwh.to(obj.position, { y: 0, duration: 1 });
 
+//   ScrollTrigger.create({
+//     trigger: "body",
+//     start: "top top",
+//     endTrigger: "#section1",
+//     end: "10% top",
+//     animation: action5w,
+//     scrub: 2,
+//     toggleActions: "play reverse play reverse",
+//   });
+// }
+// end//
 ScrollTrigger.create({
   trigger: "#section2",
   start: "top top",
