@@ -9,12 +9,12 @@ var loader = new THREE.GLTFLoader();
 var obj;
 loader.load(
   // resource URL
-  "models/whatsup3.glb",
+  "models/new.glb",
   // called when the resource is loaded
   function (gltf) {
     obj = gltf.scene;
     scene.add(obj);
-    obj.scale.set(0.6, 0.6, 0.6);
+    obj.scale.set(0.35, 0.35, 0.35);
     obj.position.set(0, 0.2, 0);
   }
 );
@@ -104,12 +104,12 @@ $(window).resize(function () {
   }
 });
 // Lights
-const light = new THREE.AmbientLight(0xffffff, 1); // soft white light
+const light = new THREE.AmbientLight(0xffffff, 3); // soft white light
 scene.add(light);
 
-const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
-dirLight.position.set(20, -0.1, 10);
-scene.add(dirLight);
+// const dirLight = new THREE.DirectionalLight(0xffffff, 0.5);
+// dirLight.position.set(20, -0.1, 10);
+// scene.add(dirLight);
 
 const dirLight2 = new THREE.DirectionalLight(0xffffff, 0.3);
 dirLight2.position.set(-20, -0.1, 10);
@@ -126,10 +126,10 @@ scene.add(dirLight4);
 const width = 10;
 const height = 100;
 const intensity = 10;
-const rectLight = new THREE.RectAreaLight(0xffffff, intensity, width, height);
-rectLight.position.set(500, 0, 100);
-rectLight.lookAt(0, 0, 0);
-scene.add(rectLight);
+// const rectLight = new THREE.RectAreaLight(0xffffff, intensity, width, height);
+// rectLight.position.set(500, 0, 100);
+// rectLight.lookAt(0, 0, 0);
+// scene.add(rectLight);
 
 const rectLight2 = new THREE.RectAreaLight(0xffffff, intensity, width, height);
 rectLight2.position.set(-500, 0, 100);
@@ -220,23 +220,22 @@ const updateOnScroll = (event) => {
       duration: 1,
     },
     0
-  )
-    .to(
-      obj.position,
-      {
-        x: 0,
-
-        z: window.scrollY * 0.0033,
-      },
-      0
-    )
-    .to(
-      obj.position,
-      {
-        y: 0,
-      },
-      1
-    );
+  ).to(
+    obj.position,
+    {
+      x: 0,
+      y: window.scrollY * 0.00000033,
+      z: window.scrollY * 0.0033,
+    },
+    0
+  );
+  // .to(
+  //   obj.position,
+  //   {
+  //     ,
+  //   },
+  //   1
+  // );
 };
 
 window.addEventListener("scroll", updateOnScroll);
