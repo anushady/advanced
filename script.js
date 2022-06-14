@@ -42,10 +42,11 @@ const sizes = {
 let textureVid = document.createElement("video");
 textureVid.src = `images/showreel_preview.mp4`; // transform gif to mp4
 textureVid.loop = true;
-window.addEventListener("mousemove", () => {
-  textureVid.play();
-});
+textureVid.muted = true;
+// window.addEventListener("mousemove", () => {
 
+// });
+textureVid.play();
 // Load video texture
 let videoTexture = new THREE.VideoTexture(textureVid);
 videoTexture.format = THREE.RGBFormat;
@@ -224,7 +225,7 @@ const updateOnScroll = (event) => {
     obj.position,
     {
       x: 0,
-      y: window.scrollY * 0.00000033,
+      //y: window.scrollY * 0.00000033,
       z: window.scrollY * 0.0033,
     },
     0
@@ -265,20 +266,20 @@ tl0.to(plane.rotation, { y: Math.PI, duration: 1 }, 0);
 tl0.to(plane.position, { z: -2, duration: 1 }, 0);
 tl0.to(plane.position, { x: 0, duration: 1 }, 0);
 ////whatsup
-// if (obj) {
-//   var tlwh = gsap.timeline();
-//   var action5w = tlwh.to(obj.position, { y: 0, duration: 1 });
+if (obj) {
+  var tlwh = gsap.timeline();
+  var action5w = tlwh.to(obj.position, { y: 0, duration: 1 });
 
-//   ScrollTrigger.create({
-//     trigger: "body",
-//     start: "top top",
-//     endTrigger: "#section1",
-//     end: "10% top",
-//     animation: action5w,
-//     scrub: 2,
-//     toggleActions: "play reverse play reverse",
-//   });
-// }
+  ScrollTrigger.create({
+    trigger: "#section1",
+    start: "top top",
+    endTrigger: "#section1",
+    end: "top center",
+    animation: action5w,
+    scrub: 2,
+    toggleActions: "play reverse play reverse",
+  });
+}
 // end//
 ScrollTrigger.create({
   trigger: "#section2",
@@ -336,9 +337,11 @@ gsap.utils.toArray(".recentworkcontainer").forEach((el) => {
     setY = gsap.quickSetter(image, "y", "px"),
     align = (e) => {
       const top = el.getBoundingClientRect().top;
-      //const left = el.getBoundingClientRect().left;
-      setX(e.clientX);
-      setY(e.clientY - top);
+      const bottom = el.getBoundingClientRect().bottom;
+      const left = el.getBoundingClientRect().left;
+      const right = el.getBoundingClientRect().right;
+      setX(e.clientX - left - right * 0.07);
+      setY(e.clientY - top - bottom * 0.185);
     },
     startFollow = () => document.addEventListener("mousemove", align),
     stopFollow = () => document.removeEventListener("mousemove", align),
@@ -441,8 +444,13 @@ hoverMouse($(".link"));
 
 //image Zoom
 
-const imagediv = document.querySelector(".recentimg");
+// const imagediv = document.querySelector(".recentimg");
 
-document.querySelector(".imagediv").addEventListener("mouseover", () => {
-  gsap.fromTo(imagediv, { scale: 1.05 }, { scale: 1, duration: 0.75 });
-});
+// document.querySelector(".imagediv").addEventListener("mouseover", () => {
+//   gsap.fromTo(imagediv, { scale: 1.05 }, { scale: 1, duration: 0.75 });
+// });
+// const imagediv2 = document.querySelector(".recentimg");
+
+// document.querySelector(".imagediv").addEventListener("mouseover", () => {
+//   gsap.fromTo(imagediv2, { scale: 1.05 }, { scale: 1, duration: 0.75 });
+// });
