@@ -19,10 +19,10 @@ body {
   background-color: black;
   color: white;
 }
-/* section{
+section{
   border: 2px solid rgb(255, 0, 0);
 
-} */
+}
 .webgl {
   position: fixed;
   top: 0;
@@ -446,8 +446,9 @@ left: 5vw;
   top: 45vh;
   left: 50vw;
   transform: translate(-50%);
-  width: 37%;
-  height: 37%;
+  width: 37vw;
+  height: 37vh;
+  cursor: pointer;
 }
 .recentimg img{
   height: 95%;
@@ -457,6 +458,7 @@ left: 5vw;
   top: 0;
   width: 100%;
   object-fit: cover;
+  z-index: 8;
 }
 .recenth2{
   font: 'MyWebFont';
@@ -507,10 +509,10 @@ left: 5vw;
 #divqr {
   position: absolute;
   left: 10vw;
-  bottom: 10vh;
+  bottom: 20vh;
 
-  max-width: 150%;
-  overflow: hidden; 
+  /* max-width: 150%; */
+  /* overflow: hidden;  */
 }
 
 .wrapper {
@@ -1223,8 +1225,8 @@ left: 5vw;
 
 .swipeimage {
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
 
   z-index: 9;
   opacity: 0;
