@@ -19,10 +19,10 @@ body {
   background-color: black;
   color: white;
 }
-/* section{
+section{
   border: 2px solid rgb(255, 0, 0);
 
-} */
+}
 .webgl {
   position: fixed;
   top: 0;
@@ -265,6 +265,10 @@ left: 5vw;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+.full_video img{
+  width: 140px;
+  height: 140px;
 }
 #section4 {
   z-index: 2;
@@ -769,6 +773,10 @@ left: 5vw;
     width: 60vw;
     margin-top: 3vh;
   }
+  .full_video img{
+    width: 80px;
+    height: 80px;
+  }
   #section5 h1{
     font-size: 4.5rem;
     line-height: 120%;
@@ -925,6 +933,10 @@ left: 5vw;
     flex-direction: column-reverse;
     margin-top: 19vh;
   }
+  .full_video img{
+    width: 120px;
+    height: 120px;
+  }
   .hover svg{
     width: 100px;
    height: 100px;
@@ -1060,6 +1072,10 @@ left: 5vw;
   .sect4h1 h1{
     font-size: 1.5rem;
     width: 85vw;
+  }
+  .full_video img{
+    width: 80px;
+    height: 80px;
   }
   #section5 h1{
     font-size: 2rem;
