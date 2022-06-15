@@ -70,7 +70,7 @@ const material = new THREE.MeshBasicMaterial({
 const plane = new THREE.Mesh(geometry, material);
 scene.add(plane);
 plane.position.set(0, -0.5, -9);
-plane.rotation.set(0, Math.PI / 2, 0);
+plane.rotation.set(0, Math.PI, 0);
 plane.scale.set(1, 1, 1);
 
 var widtha = $(window).width();
@@ -225,7 +225,7 @@ const updateOnScroll = (event) => {
     obj.position,
     {
       x: 0,
-      //y: window.scrollY * 0.00000033,
+      //y:
       z: window.scrollY * 0.0033,
     },
     0
@@ -262,19 +262,19 @@ gsap.registerPlugin(ScrollTrigger);
 var tl0 = gsap.timeline();
 var action5 = tl0.to(material, { opacity: 1, duration: 1 }, 0);
 
-tl0.to(plane.rotation, { y: Math.PI, duration: 1 }, 0);
+tl0.to(plane.rotation, { y: 2 * Math.PI, duration: 1 }, 0);
 tl0.to(plane.position, { z: -2, duration: 1 }, 0);
 tl0.to(plane.position, { x: 0, duration: 1 }, 0);
 ////whatsup
 if (obj) {
   var tlwh = gsap.timeline();
-  var action5w = tlwh.to(obj.position, { y: 0, duration: 1 });
+  var action5w = tlwh.to(obj.position, { y: 0 });
 
   ScrollTrigger.create({
     trigger: "#section1",
     start: "top top",
-    endTrigger: "#section1",
-    end: "top center",
+    endTrigger: "#section2",
+    end: "top top",
     animation: action5w,
     scrub: 2,
     toggleActions: "play reverse play reverse",
@@ -293,6 +293,8 @@ ScrollTrigger.create({
 
 var tl0y = gsap.timeline();
 var actiony = tl0y.to(plane.position, { y: 3.57 }, 0);
+
+//plane.rotation.y -= 0.004 * (targetX - plane.rotation.z);
 
 ScrollTrigger.create({
   trigger: "#section3",
