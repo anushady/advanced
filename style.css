@@ -166,7 +166,6 @@ body {
     align-items: center;
     font-size: 20px;
     z-index: 3;
-    margin-left: 20%;
   }
 
   .nav-menu.active {
@@ -202,9 +201,9 @@ body {
   top: 30vh;
   left: 4vw;
   color: white;
-  font-size: 72px;
-  line-height: 72px;
-  font-weight: 450;
+  font-size: 100px;
+  line-height: 1.1;
+  font-weight: 60;
   z-index: 2;
   letter-spacing: 2px;
 }
